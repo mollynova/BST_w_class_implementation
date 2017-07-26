@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 	BST* bst = new BST();
-	// It's generally considered good practice to avoid global variables, so I made a function
+	// It's generally considered good practice to avoid global variables when using classes so I made a function
 	// in BST.cpp called insertNode(int data), to which 'main' can pass the int to be inserted
 	// into the tree without needing to know the address of the root. 
 	//
@@ -35,8 +35,15 @@ int main() {
 	bst->printSize();
 
 	bst->print();
-
+	
+	// the "getchar()"s are just there to pause the system so you can see what is being output
+	// hit any key twice to continue..
 	getchar();
 	getchar();
+	
+	// note: I have not written the destructor for bst yet, which control will pass to when the
+	// next line runs, so feel free to write it yourself :) the program will still work w/o it so far
+	// although this is technically a memory leak currently!
+	delete bst;
 	return 0;
 }
